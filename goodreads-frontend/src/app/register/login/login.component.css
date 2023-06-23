@@ -1,0 +1,49 @@
+.halfBg {
+    position: absolute;
+    width: 45vw;
+    height: 93%;
+    left: 55%;
+    /* top: -120px; */
+
+    background: url(../../../assets/imgs/Oyster_book_river.png);
+    opacity: 0.15;
+}
+
+h2,
+h4 {
+    color: #eeeeeeb8;
+}
+
+form {
+    color: #eeeeeeb8;
+    width: 400px;
+}
+
+input {
+    background-color: #ffffff1c;
+    color: #eeeeeeb8;
+}
+
+input:focus {
+    background-color: #ffffff1c;
+    outline-color: #eeeeeeb8 !important;
+    outline-style: solid;
+    color: #eeeeeeb8;
+    border-color: #3d3d3d;
+}
+
+button {
+    border: 1px solid #eee;
+    background-color: #292727;
+    width: 130px;
+}
+
+button:hover {
+    background-color: #000;
+    border: 1px solid #eee;
+}
+
+a {
+    color: #ced4da;
+    padding-left: 20px;
+}
