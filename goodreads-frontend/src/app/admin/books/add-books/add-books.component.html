@@ -1,0 +1,81 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="container">
+    <div class="box">
+      <h3 class="my-5">Add Book</h3>
+      <form
+        class="mt-5"
+        (ngSubmit)="onSubmit()"
+        [formGroup]="addBookForm"
+        #registerForm="ngForm"
+        enctype="multipart/form-data"
+      >
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+            <div class="form-outline">
+              <label class="form-label" for="form3Example1">Title</label>
+              <input
+                type="text"
+                [name]="title"
+                formControlName="title"
+                id="form3Example1"
+                [(ngModel)]="title"
+                class="form-control"
+                aria-describedby="fnameHelp"
+              />
+              <div id="fnameHelp" class="form-text text-danger" *ngIf="addBookForm.controls['title'].touched && addBookForm.controls['title'].invalid">
+                <span *ngIf="addBookForm.controls['title'].errors?.['required']">
+                  This Field Is Required
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- last name -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="form3Example2">Author ID</label>
+              <select class="form-select" aria-label="Default select example" name="author.id" id="author" formControlName="authors" [(ngModel)]="authorID">
+                <option *ngFor="let author of authors" [value]="author.id">{{author.firstName + " " + author.lastName}}</option>
+              </select>
+
+              <div id="lnameHelp" class="form-text text-danger" *ngIf="addBookForm.controls['authors'].touched && addBookForm.controls['authors'].invalid">
+                <span *ngIf="addBookForm.controls['authors'].errors?.['required']">
+                  This Field Is Required
+                </span>
+              </div>
+            </div>
+  
+        <!-- category input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form3Example3">Category</label>
+          <select class="form-select" aria-label="Default select example" name="category._id" id="category" formControlName="category" [(ngModel)]="categoryID">
+            <option *ngFor="let category of categories" [value]="category._id">{{category.name}}</option>
+          </select>
+          
+          <div id="emailHelp" class="form-text text-danger" *ngIf="addBookForm.controls['category'].touched && addBookForm.controls['category'].invalid">
+            <span *ngIf="addBookForm.controls['category'].errors?.['required']">
+              This Field Is Required
+            </span>
+          </div>
+        </div>
+        <!-- upload image input -->
+        <div class="form-outline mb-4">
+          <input
+            type="file"
+            name="image"
+            id="form9Example4"
+            (change)="onFileSelect($event)"
+            class="form-control"
+          />
+          <label class="form-label" for="form9Example4">upload image</label>
+        </div>
+  
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="addBookForm.invalid">
+          Add Book
+        </button>
+      </form>
+      <div *ngIf="showSuccessMessage">
+        <div class="alert alert-success text-center">Book Added successfully</div>
+      </div>
+    </div>
+  </div>
+  

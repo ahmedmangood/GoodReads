@@ -1,0 +1,15 @@
+<app-sidebar></app-sidebar>
+<div class="form-outline">
+    <input type="search" id="form1" class="form-control search" placeholder="Search for books, authors or members"
+        aria-label="Search" />
+</div>
+<div class="list-books">
+    <div class="container my-5">
+        <h4 class="display-4 mb-5">Library</h4>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" *ngFor="let author of authors">
+                <app-cards [singleBook]="author"></app-cards>
+            </div>
+        </div>
+    </div>
+</div>
